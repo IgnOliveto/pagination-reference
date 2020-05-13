@@ -1,5 +1,6 @@
 package com.example.paginationDemo.controller;
 
+import com.example.paginationDemo.decorator.PageDecorator;
 import com.example.paginationDemo.model.dto.ProductDto;
 import com.example.paginationDemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,8 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping
-    public ResponseEntity<Page<ProductDto>> getCurrentChecklists(Pageable pageable) {
-        return new ResponseEntity<>(productService.getCurrentChecklists(pageable), HttpStatus.OK);
+    public ResponseEntity<PageDecorator> getCurrentChecklists(Pageable pageable) {
+        return new ResponseEntity(productService.getCurrentChecklists(pageable), HttpStatus.OK);
     }
 
 

@@ -2,11 +2,6 @@ package com.example.paginationDemo.model.dto;
 
 import com.example.paginationDemo.model.Product;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
 public class ProductDto {
 
     private long id;
