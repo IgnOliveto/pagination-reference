@@ -1,6 +1,5 @@
 package com.example.paginationDemo.decorator;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -25,8 +24,7 @@ public class PageDecorator {
         return page.getTotalElements();
     }
 
-    @JsonProperty("current_page")
-    public int getNumber() {
+    public int getCurrentPage() {
         return page.getNumber() + 1;
     }
 
@@ -58,6 +56,6 @@ public class PageDecorator {
         return page.nextOrLastPageable().getPageNumber() + 1;
     }
 
-    //TODO: ADD LINKS
+    //TODO: ADD LINKS AND OFFSET
 
 }
