@@ -2,7 +2,6 @@ package com.example.paginationDemo.decorator;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -26,33 +25,39 @@ public class PageDecorator {
         return page.getTotalElements();
     }
 
-    public int getNumber(){
-        return page.getNumber();
+    @JsonProperty("current_page")
+    public int getNumber() {
+        return page.getNumber() + 1;
     }
 
-    @JsonProperty("limit")
-    public int getLimit(){
+    public int getLimit() {
         return page.getSize();
     }
 
-    public  Pageable getPageable (){
-        return page.getPageable();
-    }
-
-    public boolean isLast (){
+    public boolean isLast() {
         return page.isLast();
     }
 
-    public int getNumberOfElements(){
+    public int getNumberOfElements() {
         return page.getNumberOfElements();
     }
 
-    public boolean isFirst(){
+    public boolean isFirst() {
         return page.isFirst();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return page.isEmpty();
     }
+
+    public int getPreviousPage() {
+        return page.previousOrFirstPageable().getPageNumber() + 1;
+    }
+
+    public int nextPage() {
+        return page.nextOrLastPageable().getPageNumber() + 1;
+    }
+
+    //TODO: ADD LINKS
 
 }
