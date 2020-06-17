@@ -16,10 +16,10 @@ public class ProductService {
     private PagedResourcesAssembler<ProductDto> pagedAssembler;
 
     @Autowired
-    ProductRepository productRepository;
+    private ProductRepository productRepository;
 
-    public PageDecorator getCurrentChecklists(Pageable pageable) {
-        Page<ProductDto> productPage = productRepository.findAll(pageable).map(ProductDto::from);
+    public PageDecorator getCurrentChecklists(final Pageable pageable) {
+        final Page<ProductDto> productPage = productRepository.findAll(pageable).map(ProductDto::from);
         return new PageDecorator(productPage, pagedAssembler.toModel(productPage).getLinks());
     }
 
