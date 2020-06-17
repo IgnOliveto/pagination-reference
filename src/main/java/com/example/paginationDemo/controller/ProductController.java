@@ -1,10 +1,8 @@
 package com.example.paginationDemo.controller;
 
 import com.example.paginationDemo.decorator.PageDecorator;
-import com.example.paginationDemo.model.dto.ProductDto;
 import com.example.paginationDemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
