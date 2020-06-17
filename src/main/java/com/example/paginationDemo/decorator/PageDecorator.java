@@ -9,11 +9,11 @@ import java.util.List;
 public class PageDecorator {
     private final Page page;
     private final Links pageLinks;
-    private static String PREV_RELATION = "prev";
-    private static String NEXT_RELATION = "next";
-    private static String FIRST_RELATION = "first";
-    private static String LAST_RELATION = "last";
-    private static String SELF_RELATION = "self";
+    private static final String PREV_RELATION = "prev";
+    private static final String NEXT_RELATION = "next";
+    private static final String FIRST_RELATION = "first";
+    private static final String LAST_RELATION = "last";
+    private static final String SELF_RELATION = "self";
 
     public PageDecorator(final Page page, final Links pageLinks) {
         this.page = page;
@@ -49,15 +49,15 @@ public class PageDecorator {
     }
 
     public int getPreviousPage() {
-        return page.previousOrFirstPageable().getPageNumber() + 1;
+        return !page.isEmpty() ? page.previousOrFirstPageable().getPageNumber() + 1 : page.getTotalPages();
     }
 
     public int getCurrentPage() {
-        return page.getNumber() + 1;
+        return !page.isEmpty() ? page.getNumber() + 1 : page.getTotalPages();
     }
 
     public int getNextPage() {
-        return page.nextOrLastPageable().getPageNumber() + 1;
+        return !page.isEmpty() ? page.nextOrLastPageable().getPageNumber() + 1 : page.getTotalPages();
     }
 
     public boolean isFirst() {
