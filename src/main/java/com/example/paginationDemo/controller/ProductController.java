@@ -19,7 +19,7 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping
-    public ResponseEntity<PageDecorator> getCurrentChecklists(Pageable pageable) {
+    public ResponseEntity<PageDecorator> getCurrentChecklists(final Pageable pageable) {
         return new ResponseEntity(productService.getCurrentChecklists(pageable), HttpStatus.OK);
     }
 
